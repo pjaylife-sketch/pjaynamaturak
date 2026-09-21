@@ -1,0 +1,924 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DJ + moderátor na maturitní ples | Patrik</title>
+<meta name="description" content="DJ a moderátor v jednom pro maturitní plesy. Umím obojí — hraju, moderuju a mám celý večer pod kontrolou.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0B0B0D; color: #F5F5F2; font-family: 'Space Grotesk', sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #F5F5F2; text-decoration: none; }
+  img, video { max-width: 100%; display: block; }
+  button, input, textarea { font-family: inherit; }
+  ::selection { background: #FF2E63; color: #0B0B0D; }
+
+  .container { max-width: 1280px; margin: 0 auto; padding-inline: clamp(20px, 5vw, 64px); }
+  .eyebrow { font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: #8A8A85; font-weight: 600; }
+  .h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 6vw, 76px); line-height: 0.94; letter-spacing: 0.3px; text-transform: uppercase; margin: 0; }
+  .body-text { font-size: clamp(15px, 1.6vw, 18px); line-height: 1.65; color: #C7C7C2; }
+
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a { font-size: 14px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: #E7E7E2; opacity: 0.85; transition: opacity .15s ease; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta-wrap { display: block; }
+  @media (max-width: 880px) {
+    .nav-links { display: none; }
+    .nav-cta-wrap { display: none; }
+  }
+
+  .sticky-cta { display: none; }
+  @media (max-width: 880px) {
+    .sticky-cta { display: flex; }
+    .page-wrap { padding-bottom: 86px; }
+  }
+
+  .hero-video { object-position: center 15%; }
+  @media (min-width: 881px) {
+    .hero-video { object-position: center center; }
+  }
+
+  .hero-lead { position: relative; }
+  @media (max-width: 700px) {
+    .hero-overlay { background: linear-gradient(to top, #0B0B0D 10%, rgba(11,11,13,0.55) 40%, rgba(11,11,13,0.14) 56%, rgba(11,11,13,0.14) 68%, rgba(11,11,13,0.62) 100%) !important; }
+  }
+
+  @media (min-width: 701px) {
+    .hero-cta-block { padding-bottom: 30px !important; }
+  }
+
+  .closing-line-mobile { display: none; }
+  @media (max-width: 700px) {
+    .closing-line-desktop { display: none; }
+    .closing-line-mobile { display: block; }
+  }
+
+  @media (max-width: 700px) {
+    .hero-lead { position: absolute; top: 120px; left: clamp(20px, 5vw, 64px); right: clamp(20px, 5vw, 64px); }
+    .hero-cta-block { margin-bottom: 54px; padding-bottom: 20px !important; }
+  }
+
+  @media (max-width: 700px) {
+    .hudba-photo-wrap { max-width: none !important; width: 100vw !important; margin-left: calc(50% - 50vw) !important; margin-right: calc(50% - 50vw) !important; }
+    .hudba-tags { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 8px !important; }
+    .hudba-tags .pill { padding: 7px 8px !important; font-size: 11px !important; width: 100%; justify-content: center; text-align: center; }
+  }
+
+  .proc-photo1 { max-width: 122px; }
+  @media (min-width: 701px) {
+    .proc-photo1 { max-width: 183px; }
+  }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border-radius: 999px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; border: none; transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.45); }
+  .btn-secondary { background: transparent; border: 1.5px solid rgba(245,245,242,0.35); color: #F5F5F2; }
+  .btn-secondary:hover { border-color: #F5F5F2; background: rgba(245,245,242,0.06); }
+
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .why-card { background: #101012; border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(28px, 4vw, 44px) clamp(22px, 3vw, 32px); transition: border-color .2s ease, transform .2s ease; }
+  .why-card:hover { transform: translateY(-3px); }
+
+  .badge-pill { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px; border: 1.5px solid rgba(245,245,242,0.3); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; }
+  .stamp { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; border: 1.5px solid; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; }
+
+  .faq-num { flex: 0 0 auto; width: 34px; height: 34px; border-radius: 999px; border: 1.5px solid rgba(245,245,242,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 15px; }
+
+  .timeline-row { display: flex; gap: clamp(14px, 3vw, 30px); align-items: flex-start; padding: 13px 0; border-top: 1px solid rgba(245,245,242,0.12); }
+  .timeline-row:last-child { border-bottom: 1px solid rgba(245,245,242,0.12); }
+  .timeline-time { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 2.6vw, 28px); flex: 0 0 auto; width: clamp(64px, 9vw, 100px); }
+  .timeline-dot-col { display: flex; flex-direction: column; align-items: center; flex: 0 0 auto; padding-top: 8px; }
+
+  .reel-row { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 6px 2px 18px; -webkit-overflow-scrolling: touch; }
+  .reel-card { scroll-snap-align: start; flex: 0 0 auto; width: 200px; aspect-ratio: 9 / 16; border-radius: 18px; position: relative; overflow: hidden; background: #141417; border: 1.5px solid rgba(245,245,242,0.16); }
+  .reel-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(11,11,13,0.25); border: none; width: 100%; height: 100%; cursor: pointer; padding: 0; }
+  .reel-play-circle { width: 56px; height: 56px; border-radius: 999px; background: rgba(245,245,242,0.14); backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center; color: #F5F5F2; transition: transform .15s ease, background .15s ease; }
+  .reel-card:hover .reel-play-circle { transform: scale(1.08); background: rgba(245,245,242,0.22); }
+  .reel-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #141417; }
+  .reel-scrim { position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,11,13,0.8) 0%, rgba(11,11,13,0.05) 50%); pointer-events: none; }
+  .reel-play-circle .icon-unmuted { display: none; }
+  .reel-play-circle.is-unmuted .icon-muted { display: none; }
+  .reel-play-circle.is-unmuted .icon-unmuted { display: block; }
+  .reel-label { position: absolute; left: 12px; bottom: 12px; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; color: #F5F5F2; }
+
+  .pill { display: inline-flex; align-items: center; padding: 11px 18px; border-radius: 999px; border: 1.5px solid rgba(245,245,242,0.24); font-size: 14px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: #E7E7E2; background: #101012; }
+
+  .compare-wrap { display: flex; flex-wrap: wrap; gap: 24px; }
+  .compare-col { flex: 1 1 320px; border-radius: 16px; padding: clamp(18px, 2.6vw, 26px); border: 1.5px solid rgba(245,245,242,0.16); }
+  .compare-col.old { background: #121214; }
+  .old-step { display: flex; align-items: center; gap: 10px; color: #C9928F; font-size: 13.5px; font-weight: 500; letter-spacing: 0.01em; padding: 6px 0; }
+  .old-step.chaos { color: #E5484D; font-weight: 600; }
+  .old-step svg { flex: 0 0 auto; color: #E5484D; width: 15px; height: 15px; }
+  .old-step.chaos svg { color: #E5484D; }
+  .new-step { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed rgba(11,11,13,0.18); font-weight: 600; letter-spacing: 0.01em; font-size: 13.5px; }
+  .new-step:last-child { border-bottom: none; }
+  .new-step svg { flex: 0 0 auto; width: 16px; height: 16px; }
+
+  .photo-block { position: relative; border-radius: 20px; overflow: hidden; background: #131316; border: 1.5px solid rgba(245,245,242,0.16); display: flex; align-items: center; justify-content: center; }
+  .photo-block-label { display: flex; flex-direction: column; align-items: center; gap: 10px; color: #63635F; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; text-align: center; padding: 20px; }
+
+  .faq-item { border: 1.5px solid rgba(245,245,242,0.16); border-radius: 18px; padding: 6px clamp(18px, 3vw, 28px); margin-bottom: 14px; }
+  .faq-question { display: flex; width: 100%; justify-content: space-between; align-items: center; gap: 16px; background: none; border: none; color: inherit; text-align: left; cursor: pointer; padding: 20px 0; }
+  .faq-q-left { display: flex; align-items: center; gap: 16px; }
+  .faq-q-text { font-size: clamp(15px, 1.8vw, 19px); font-weight: 700; letter-spacing: 0.01em; }
+  .faq-icon { flex: 0 0 auto; transition: transform .2s ease; color: #8A8A85; }
+  .faq-icon.open { transform: rotate(45deg); color: #F5F5F2; }
+  .faq-answer { padding: 0 0 24px 50px; max-width: 720px; display: none; }
+
+  .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .field label { display: block; font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase; color: #8A8A85; font-weight: 700; margin-bottom: 9px; }
+  .field input, .field textarea, .field select { width: 100%; background: #141417; border: 1.5px solid rgba(245,245,242,0.2); border-radius: 12px; padding: 15px 16px; color: #F5F5F2; font-size: 15px; font-family: inherit; }
+  .field input::placeholder, .field textarea::placeholder { color: #55554F; }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: #F5F5F2; background: #17171A; }
+  .field textarea { resize: vertical; min-height: 110px; }
+  .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238A8A85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; cursor: pointer; }
+  .field select:invalid { color: #55554F; }
+
+  .footer-links { display: flex; gap: 26px; flex-wrap: wrap; }
+  .footer-links a { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; color: #A6A6A1; }
+  .footer-links a:hover { color: #F5F5F2; }
+
+  #form-success { display: none; }
+</style>
+</head>
+<body>
+
+<div class="page-wrap" style="width: 100%; min-height: 100vh; background: #0B0B0D; position: relative; overflow-x: hidden;">
+
+  <!-- NAV -->
+  <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(11,11,13,0.72); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(245,245,242,0.08);">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; height: 76px;">
+      <a href="#hero" style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.04em;">PJAY <span style="color: #FF2E63;">na</span> Maturák</a>
+      <nav class="nav-links">
+        <a href="#hero">Domů</a>
+        <a href="#proc">Proč já?</a>
+        <a href="#video">Video</a>
+        <a href="#program">Program</a>
+        <a href="#o-mne">O mně</a>
+        <a href="#hudba">Hudba</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta-wrap">
+        <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; padding: 12px 22px; font-size: 13px;">Ověřit termín</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
+    <video class="hero-video" src="assets/videos/hero.mp4" autoplay muted loop playsinline preload="auto" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #121214;"></video>
+    <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to top, #0B0B0D 10%, rgba(11,11,13,0.55) 45%, rgba(11,11,13,0.1) 75%);"></div>
+
+    <div class="container hero-lead">
+      <div class="badge-pill" style="margin-bottom: clamp(20px, 3vw, 28px); color: #D9D9D4; border-color: #FF2E63;">Jeden člověk • Dvě role • Jedna cena</div>
+      <h1 class="hero-h1" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 7.2vw, 94px); line-height: 1.1; text-transform: uppercase; margin: 0;">Řešíte hudbu a moderátora?<br><span style="color: #6FCF97;">Umím</span> obojí!</h1>
+    </div>
+
+    <div class="container hero-cta-block" style="position: relative; padding-bottom: clamp(56px, 9vw, 96px);">
+      <p class="body-text" style="max-width: 520px; font-size: clamp(16px, 2vw, 20px); color: #E0E0DB; margin: clamp(30px, 4vw, 44px) 0 clamp(40px, 5vw, 52px);">DJ + moderátor v jednom. Od šerpování až po afterku.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
+        <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D;">Poptejte mě</a>
+        <a href="#video" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
+          Pusť mi ukázku
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS DJ -->
+  <section id="proc" style="padding-top: clamp(8px, 1vw, 16px); padding-bottom: clamp(14px, 2vw, 30px);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); align-items: flex-start;">
+        <div style="flex: 1 1 440px;">
+          <div class="eyebrow" style="margin-bottom: 16px;">Proč já?</div>
+          <h2 class="h2" style="margin-bottom: 30px; line-height: 1.15;">Proč <span style="color: #E5484D;">platit dva</span>,<br>když <span style="color: #6FCF97;">stačí jeden</span>?</h2>
+          <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-bottom: 0;">Jsem moderátor a DJ v jednom člověku. Dokážu odřídit celej večer sám a reagovat na průběh večera slovem i hudbou.</p>
+        </div>
+        <div class="proc-photo1" style="flex: 1 1 96px; position: relative; margin: 0 auto;">
+          <div style="position: absolute; left: 50%; top: 38%; width: 130%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
+          <img src="assets/images/proc-foto-1.png" alt="DJ Patrik s mikrofonem a sluchátky" style="position: relative; width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+
+      <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-top: clamp(24px, 4vw, 36px); margin-bottom: 0;">Mám za sebou deset let zkušeností a stovky akcí.</p>
+
+      <div style="max-width: 204px; margin: clamp(24px, 4vw, 40px) auto 0; position: relative;">
+        <div style="position: absolute; left: 50%; top: 32%; width: 140%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
+        <img src="assets/images/proc-foto-2.png" alt="DJ Patrik s mikrofonem" style="position: relative; width: 100%; height: auto; display: block;">
+      </div>
+
+      <div style="margin-top: clamp(32px, 5vw, 48px); border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 3.5vw, 36px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 48px);">
+        <div style="flex: 1 1 320px;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Moderace</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Přivítání</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Poděkování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Soutěže</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Losování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
+          </div>
+        </div>
+        <div style="flex: 1 1 320px;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Hudba</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Předtančení</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Polonéza</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Oldies</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">CZ/SK hity</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Zahraniční</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Tik Tok Trends</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Afterparty</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO / SOCIAL PROOF -->
+  <section id="video" style="padding-block: clamp(40px, 6vw, 90px);">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom: 16px;">Pár ukázek</div>
+      <h2 class="h2" style="margin-bottom: 40px;">Koukni se!</h2>
+    </div>
+
+    <div class="container">
+      <div class="reel-row">
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-uvod.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Úvod" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Úvod</span>
+        </div>
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-party.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Party" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Party</span>
+        </div>
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-plouzaky.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Ploužáky" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Ploužáky</span>
+        </div>
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-srandy.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Srandy" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Srandy</span>
+        </div>
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-lets-dance.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Let's Dance" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Let's Dance</span>
+        </div>
+
+        <div class="reel-card">
+          <video class="reel-video" src="assets/videos/reel-masinka.mp4" autoplay muted loop playsinline preload="metadata" onCanPlay="startVideo(event)" onLoadedData="startVideo(event)" onEnded="loopVideo(event)"></video>
+          <div class="reel-scrim"></div>
+          <button class="reel-play" aria-label="Zapnout zvuk: Mašinka" onClick="toggleReelSound(event)">
+            <span class="reel-play-circle">
+              <svg class="icon-muted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+              <svg class="icon-unmuted" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+            </span>
+          </button>
+          <span class="reel-label">Mašinka</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container" style="margin-top: 40px; text-align: center;">
+      <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D;">Chci takovou atmosféru</a>
+    </div>
+
+  </section>
+
+  <!-- COMPARISON -->
+  <section id="rozdil" style="padding-block: clamp(32px, 4.5vw, 70px);">
+    <div class="container">
+
+      <div style="margin-top: 0; margin-bottom: clamp(44px, 6vw, 64px); padding-top: clamp(28px, 4vw, 40px); padding-bottom: clamp(28px, 4vw, 40px); border-top: 1px solid rgba(245,245,242,0.14); border-bottom: 1px solid rgba(245,245,242,0.14); display: flex; flex-wrap: nowrap; align-items: center; justify-content: center; gap: clamp(10px, 3.5vw, 44px);">
+        <div style="flex: 0 0 auto; width: clamp(64px, 30vw, 380px); aspect-ratio: 1; position: relative;">
+          <div style="position: absolute; left: 50%; top: 50%; width: 170%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.28; filter: blur(30px); pointer-events: none;"></div>
+          <img src="assets/images/rozdil-foto-1.png" alt="DJ Patrik se sluchátky" style="position: absolute; left: 50%; top: 50%; width: 175%; height: 175%; transform: translate(-50%,-50%); object-fit: contain; display: block;">
+        </div>
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px, 4.6vw, 54px); letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.45; text-align: center; flex: 0 1 480px; min-width: 0;">
+          <span class="closing-line-desktop">Jeden člověk. <span style="color: #FF2E63; white-space: nowrap;">Dvě role.</span> Jeden budget.</span>
+          <div class="closing-line-mobile">
+            <div style="margin-bottom: 0.3em;">Jeden člověk</div>
+            <div style="color: #FF2E63; margin-bottom: 0.3em; white-space: nowrap;">Dvě role</div>
+            <div>Jeden budget</div>
+          </div>
+        </div>
+        <div style="flex: 0 0 auto; width: clamp(64px, 30vw, 380px); aspect-ratio: 1; position: relative;">
+          <div style="position: absolute; left: 50%; top: 50%; width: 170%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.28; filter: blur(30px); pointer-events: none;"></div>
+          <img src="assets/images/rozdil-foto-2.png" alt="DJ Patrik s mikrofonem" style="position: absolute; left: 50%; top: 50%; width: 175%; height: 175%; transform: translate(-50%,-50%); object-fit: contain; display: block;">
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom: 12px;">Rozdíl</div>
+      <h2 class="h2" style="max-width: 820px; margin-bottom: 24px; font-size: clamp(28px, 4.5vw, 56px);">V čem je výhoda?</h2>
+
+      <div class="compare-wrap" style="gap: 16px;">
+        <div class="compare-col old" style="background: color-mix(in srgb, #E5484D 12%, #0B0B0D); border: 2px solid #E5484D;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: 0.03em; margin-bottom: 12px; color: #E5484D;">Dva lidé</div>
+          <div class="old-step">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Dva lidi = víc domlouvání
+          </div>
+          <div class="old-step">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Platíte dvakrát
+          </div>
+          <div class="old-step">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Hudba často neplynule navazuje na program
+          </div>
+          <div class="old-step">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Nikdo nemá úplný přehled o tom, co se právě děje
+          </div>
+          <div class="old-step">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Více prostoru pro nedorozumění
+          </div>
+          <div class="old-step chaos">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+            Nemusí si spolu sednout
+          </div>
+        </div>
+        <div class="compare-col" style="background: color-mix(in srgb, #6FCF97 14%, #0B0B0D); border: 2px solid #6FCF97;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 19px; letter-spacing: 0.03em; margin-bottom: 12px; color: #6FCF97;">Já:</div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Vím, co se právě děje.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Vím, co bude následovat.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Hudba reaguje okamžitě na program.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Moderace plynule přechází do hudby.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Nikdo si nepředává mikrofon.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Nikdo nemusí nic vysvětlovat druhému.
+          </div>
+          <div class="new-step" style="border-color: rgba(245,245,242,0.2); font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Před plesem komunikujete jen se mnou.
+          </div>
+          <div class="new-step" style="font-size: 15px;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #6FCF97;"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Celý večer mám pod kontrolou.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 32px; text-align: center;">
+        <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; font-family: 'Space Grotesk', sans-serif;">To beru</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TIMELINE / ATMOSFÉRA -->
+  <section id="program" style="padding-block: clamp(32px, 4.5vw, 70px); background: #101012;">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom: 12px;">Názorná ukázka</div>
+      <h2 class="h2" style="margin-bottom: 28px; font-size: clamp(28px, 4.5vw, 56px);">Takhle to může vypadat</h2>
+
+      <div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">18:00</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Příchod hostů</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">Plesový vibe naladím Jazzy setem.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">19:00</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Úvod + předtančení</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">Uvítám hosty a uvedu tanečníky.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">20:00</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Šerpování</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">Vaše momentum večera podpořím hudbou a moderací medailonků.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">21:00</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Program</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">Společenské tance, vystoupení, soutěže, průběžná komunikace s publikem.</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">00:00</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Půlnočko</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">Na tohle všichni čekají!</div>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="timeline-time" style="color: #FF2E63;">00:30</div>
+          <div class="timeline-dot-col"><span style="width: 8px; height: 8px; border-radius: 999px; background: #FF2E63; display: block;"></span></div>
+          <div style="flex: 1; padding-top: 2px;">
+            <div style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(16px, 2vw, 20px); letter-spacing: 0.02em; margin-bottom: 2px;">Afterparty</div>
+            <div class="body-text" style="font-size: clamp(13px, 1.3vw, 15px); line-height: 1.45;">EDM, house, pop, české pecky, guilty pleasures — podle vás.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="o-mne" style="padding-block: clamp(40px, 6vw, 90px); background: #101012;">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); align-items: flex-start;">
+        <div style="flex: 1 1 380px; max-width: 560px;">
+          <div class="eyebrow" style="margin-bottom: 16px;">O mně</div>
+          <h2 class="h2" style="margin-bottom: 22px;">Kdo vás bude bavit?</h2>
+        </div>
+        <div style="flex: 0 1 auto; display: flex; flex-direction: column; gap: 24px; align-items: center;">
+          <div style="display: flex; flex-direction: column; gap: 16px; font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px, 3vw, 34px); letter-spacing: 0.02em; text-transform: uppercase;">
+            <div><span style="color: #FF2E63;">10 let</span></div>
+            <div>přes <span style="color: #FF2E63;">500 akcí</span></div>
+            <div>více než <span style="color: #FF2E63;">100 000 lidí</span></div>
+          </div>
+          <div style="width: 220px; max-width: 260px;">
+            <div style="position: relative;">
+              <div style="position: absolute; left: 40%; top: 35%; width: 130%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(40px); pointer-events: none;"></div>
+              <img src="assets/images/o-mne-foto.png" alt="DJ Patrik s mikrofonem" style="position: relative; width: 100%; height: auto; display: block;">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="max-width: 640px; margin: 32px auto 0; text-align: center;">
+        <p class="body-text" style="margin-bottom: 16px;">Jsem Patrik, možná mě znáte z Youtube...</p>
+        <p class="body-text" style="margin-bottom: 16px;">Jsem OG tvůrce, který se rozhodl dělat naplno svojí vášeň – stát na stage!</p>
+        <p class="body-text" style="margin-bottom: 0;">Už 10. rok jezdím akce, hraju, moderuju a myslím, že se dokážu vcítit do jakéhokoliv publika. Na stagi nikdy nejsem nad vámi, ale s vámi, a hlavně... pro VÁS.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC -->
+  <section id="hudba" style="padding-block: clamp(40px, 6vw, 90px); background: #101012; position: relative; overflow: hidden;">
+    <div class="container" style="position: relative;">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); align-items: flex-start;">
+        <div style="flex: 1 1 380px;">
+          <div class="eyebrow" style="margin-bottom: 16px;">Hudba</div>
+          <h2 class="h2" style="margin-bottom: 22px;">Playlist? Ten je na vás!</h2>
+          <p class="body-text" style="max-width: 480px;">Před plesem si řekneme, co chcete slyšet, co absolutně nechcete slyšet a co prostě musí zaznít.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: clamp(36px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 40px); align-items: flex-start;">
+        <div class="hudba-photo-wrap" style="width: 254px; max-width: 332px; flex: 0 0 auto; position: relative;">
+          <div style="position: absolute; left: 50%; top: 30%; width: 130%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
+          <img src="assets/images/hudba-foto.png" alt="DJ Patrik u pultu" style="position: relative; width: 100%; height: auto; display: block;">
+        </div>
+        <div class="hudba-tags" style="flex: 1 1 260px; display: grid; grid-template-columns: repeat(4, max-content); gap: 12px;">
+          <span class="pill">EDM</span>
+          <span class="pill">Pop</span>
+          <span class="pill">Rap</span>
+          <span class="pill">Oldies</span>
+          <span class="pill">CZ/SK hity</span>
+          <span class="pill">2000s</span>
+          <span class="pill">2010s</span>
+          <span class="pill">Tik Tok Trends</span>
+          <span class="pill">House</span>
+          <span class="pill">Hip Hop</span>
+          <span class="pill">Disco</span>
+          <span class="pill">90s</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reference" style="padding-block: clamp(40px, 6vw, 90px); background: #101012;">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom: 16px;">Recenze</div>
+      <h2 class="h2" style="margin-bottom: 28px;">Co o mně říkají maturanti?</h2>
+
+      <div class="why-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+        <div class="why-card" style="padding: clamp(20px, 2.5vw, 26px);">
+          <div style="display: flex; gap: 3px; margin-bottom: 14px;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+          </div>
+          <p class="body-text" style="margin-bottom: 14px; font-size: 13.5px; line-height: 1.55;">Patrik byl náš DJ a zároveň moderátor na maturáku a za nás úplná pecka. 🔥 Hudbu dokázal skvěle přizpůsobit tomu, co se zrovna dělo, a hlavně se postaral o to, že večer měl fakt tempo. Moderování bylo přirozené, vtipné a vůbec ne trapné, což jsme se předem trochu báli 😄 Celý večer měl pod kontrolou a my jsme si mohli jen užívat. Rozhodně doporučujeme!</p>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Beata R. - Gymnázium Čelákovice</div>
+        </div>
+        <div class="why-card" style="padding: clamp(20px, 2.5vw, 26px);">
+          <div style="display: flex; gap: 3px; margin-bottom: 14px;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+          </div>
+          <p class="body-text" style="margin-bottom: 14px; font-size: 13.5px; line-height: 1.55;">Měli jsme PJAYE na našem maturitním plese a zároveň nám dělal moderátora. Bylo super, že jsme nemuseli řešit dvě různé osoby a všechno měl na starosti jeden člověk. Hudba byla skvělá, reagoval na atmosféru v sále a moderování bylo přesně takové, jaké jsme chtěli. Celý večer jsme se nemuseli o nic starat. Za nás určitě doporučení. 🙌</p>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Nátalie C. - SOŠ Příbram</div>
+        </div>
+        <div class="why-card" style="padding: clamp(20px, 2.5vw, 26px);">
+          <div style="display: flex; gap: 3px; margin-bottom: 14px;">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
+          </div>
+          <p class="body-text" style="margin-bottom: 14px; font-size: 13.5px; line-height: 1.55;">Za mě jeden z nejlepších lidí, které jsme mohli na maturák vybrat. DJ Patrik (PJAY) věděl, co kdy pustit, kdy přidat energii a kdy naopak nechat prostor programu. Moderování bylo v pohodě, žádné nucené hlášky a zároveň dokázal dostat lidi na parket. Celá třída si večer fakt užila a přesně o to nám šlo. 🔥 Díky, PJAY! ❤️</p>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Martin V. - SOŠ Kladno</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="final-cta" style="padding-block: clamp(56px, 9vw, 110px); background: #101012;">
+    <div class="container">
+      <div style="max-width: 480px; margin: 0 auto; text-align: center;">
+        <h2 class="h2" style="margin-bottom: 22px;">Tak co?<br>Rozjedem váš maturák?</h2>
+        <p class="body-text" style="max-width: 480px; margin: 0 auto 32px;">Napište mi datum, místo a název školy. Ozvu se vám a řekneme si, jestli je váš termín ještě volný.</p>
+        <div style="max-width: 156px; position: relative; margin: 0 auto;">
+          <div style="position: absolute; left: 50%; top: 35%; width: 160%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.28; filter: blur(36px); pointer-events: none;"></div>
+          <img src="assets/images/final-cta-foto.png" alt="DJ Patrik" style="position: relative; width: 100%; height: auto; display: block;">
+        </div>
+        <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; margin-top: 24px;">
+          Poptejte mě
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section id="kontakt" style="padding-block: clamp(40px, 6vw, 90px);">
+    <div class="container" style="max-width: 780px;">
+      <div class="eyebrow" style="margin-bottom: 16px;">Kontakt</div>
+      <h2 class="h2" style="margin-bottom: 36px;">Poslat poptávku</h2>
+
+      <div id="form-success" style="padding: 40px; border-radius: 20px; border: 2px solid #FF2E63; background: color-mix(in srgb, #FF2E63 12%, #0B0B0D);">
+        <div style="font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.02em; margin-bottom: 10px;">Díky za poptávku!</div>
+        <div class="body-text">Ozvu se ti co nejdřív. Kdyby něco, napiš mi rovnou na <a href="mailto:pjaylife@gmail.com" style="color: #FF2E63; text-decoration: underline;">pjaylife@gmail.com</a>.</div>
+      </div>
+
+      <form id="kontakt-form" style="border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 4vw, 40px);">
+        <div class="form-grid" style="margin-bottom: 20px;">
+          <div class="field">
+            <label for="f-jmeno">Jméno</label>
+            <input id="f-jmeno" name="jmeno" type="text" placeholder="Jak se jmenuješ" required>
+          </div>
+          <div class="field">
+            <label for="f-skola">Název školy</label>
+            <input id="f-skola" name="skola" type="text" placeholder="Vaše škola" required>
+          </div>
+          <div class="field">
+            <label for="f-misto">Město / místo plesu</label>
+            <input id="f-misto" name="misto" type="text" placeholder="Kde se ples koná">
+          </div>
+          <div class="field">
+            <label for="f-datum">Datum plesu</label>
+            <input id="f-datum" name="datum" type="date">
+          </div>
+          <div class="field">
+            <label for="f-pocet">Počet lidí</label>
+            <input id="f-pocet" name="pocet" type="number" placeholder="Přibližně">
+          </div>
+          <div class="field">
+            <label for="f-kontakt">E-mail / telefon</label>
+            <input id="f-kontakt" name="kontakt" type="text" placeholder="Jak tě zastihnout" required>
+          </div>
+          <div class="field">
+            <label for="f-zdroj">Odkud jsi přišel</label>
+            <select id="f-zdroj" name="zdroj" required>
+              <option value="" disabled selected hidden>Vyber možnost</option>
+              <option value="Tik Tok">Tik Tok</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Doporučení">Doporučení</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom: 26px;">
+          <label for="f-zprava">Napište mi něco o vašem plese</label>
+          <textarea id="f-zprava" name="zprava" placeholder="Styl, vize, co si přejete zažít..."></textarea>
+        </div>
+        <button type="submit" id="kontakt-submit-btn" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; width: 100%; justify-content: center;">Poslat poptávku</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-block: clamp(40px, 6vw, 90px);">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom: 16px;">Časté otázky</div>
+      <h2 class="h2" style="margin-bottom: 44px;">FAQ</h2>
+
+      <div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">01</span><span class="faq-q-text">Kolik stojíš?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Cena záleží na datu, lokalitě a délce akce. Napiš mi detaily o svém plese a pošlu ti nabídku na míru.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">02</span><span class="faq-q-text">Můžeš moderovat nebo hrát i zvlášť?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Jasně! Pokud už DJe nebo moderátora máš, doplním ho a všechno s ním sladím!</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">03</span><span class="faq-q-text">Hraješ i české písničky?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Jasně. Česko-slovenské hity jsou na každém maturáku základ — otázka je jen v jakém poměru k zahraničí.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">04</span><span class="faq-q-text">Můžeme si říct, co chceme hrát?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Přesně tak to funguje. Před plesem probereme, co chceš slyšet, co ne a co musí zaznít.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">05</span><span class="faq-q-text">Moderuješ celý ples?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Ano — od příchodu hostů přes šerpování a program až po afterparty. Beru na starost celý večer.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">06</span><span class="faq-q-text">Zajišťuješ i techniku?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Ozvučení a osvětlení umím zajistit. Stačí mi vědět kapacitu a typ sálu a pošlu ti nabídku.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">07</span><span class="faq-q-text">Co když máme vlastní kapelu?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Bez problému. Domluvíme si program tak, aby na sebe kapela a DJ set navazovaly.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">08</span><span class="faq-q-text">Umíš moderovat šerpování?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Jasně, šerpování je jeden z nejdůležitějších momentů večera a beru ho tak i já.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">09</span><span class="faq-q-text">Jak dlouho můžeš hrát?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Klidně celou noc. Řekni mi, do kolika chceš jet, a přizpůsobíme tomu i program.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">10</span><span class="faq-q-text">Jak dlouho dopředu je potřeba rezervovat termín?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Termíny na sezónu plesů se plní rychle — čím dřív se ozveš, tím větší šance, že tvůj termín ještě mám volný.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onClick="toggleFaq(this)" aria-expanded="false">
+            <span class="faq-q-left"><span class="faq-num" style="color: #FF2E63; border-color: #FF2E63;">11</span><span class="faq-q-text">Můžeme se před plesem osobně sejít?</span></span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg></span>
+          </button>
+          <div class="faq-answer body-text">Ano, rád si s tebou před plesem sednu (osobně nebo online) a proberu detaily.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding-block: 48px; border-top: 1px solid rgba(245,245,242,0.1);">
+    <div class="container" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+      <a href="#hero" style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.04em;">PJAY <span style="color: #FF2E63;">na</span> Maturák</a>
+      <div class="footer-links">
+        <a href="#faq">FAQ</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="https://instagram.com/Pjay_music" target="_blank" rel="noopener" aria-label="Instagram" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle></svg>
+          Instagram
+        </a>
+      </div>
+      <div style="font-size: 13px; color: #63635F;">© <span id="footer-year"></span> — PJAY na Maturák</div>
+    </div>
+  </footer>
+
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-cta" style="position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 16px; background: rgba(11,11,13,0.92); backdrop-filter: blur(10px); border-top: 1px solid rgba(245,245,242,0.1);">
+    <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; width: 100%; justify-content: center;">
+      Chceme tě 🎤
+    </a>
+  </div>
+
+</div>
+
+<script>
+  // ---- rok v patičce ----
+  document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+  // ---- autoplay/loop pro všechna videa (hero + reely) ----
+  function startVideo(e) {
+    const v = e.target;
+    v.muted = true;
+    const p = v.play();
+    if (p && p.catch) { p.catch(() => {}); }
+  }
+  function loopVideo(e) {
+    const v = e.target;
+    v.currentTime = 0;
+    const p = v.play();
+    if (p && p.catch) { p.catch(() => {}); }
+  }
+
+  // ---- mute/unmute tlačítko na kartách v "Koukni se!" ----
+  function toggleReelSound(e) {
+    const card = e.currentTarget.closest('.reel-card');
+    const video = card ? card.querySelector('video') : null;
+    if (!video) { return; }
+    video.muted = !video.muted;
+    if (!video.muted) { const p = video.play(); if (p && p.catch) { p.catch(() => {}); } }
+    const circle = card.querySelector('.reel-play-circle');
+    if (circle) { circle.classList.toggle('is-unmuted', !video.muted); }
+  }
+
+  // ---- FAQ accordion (jen jedna položka otevřená naráz) ----
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq-item.is-open').forEach((openItem) => {
+      if (openItem !== item) { closeFaqItem(openItem); }
+    });
+    if (wasOpen) { closeFaqItem(item); } else { openFaqItem(item); }
+  }
+  function openFaqItem(item) {
+    item.classList.add('is-open');
+    item.querySelector('.faq-question').setAttribute('aria-expanded', 'true');
+    item.querySelector('.faq-icon').classList.add('open');
+    item.querySelector('.faq-answer').style.display = 'block';
+  }
+  function closeFaqItem(item) {
+    item.classList.remove('is-open');
+    item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    item.querySelector('.faq-icon').classList.remove('open');
+    item.querySelector('.faq-answer').style.display = 'none';
+  }
+
+  // ---- odeslání kontaktního formuláře ----
+  // 1) Zkusí odeslat na Formspree (skutečné tiché odeslání bez opuštění stránky).
+  // 2) Když Formspree endpoint není nastavený nebo selže, otevře se záložní mailto:
+  //    (stejné chování, jaké mělo provizorní řešení v editoru).
+  //
+  // >>> AŽ BUDEŠ MÍT FORMSPREE ID, VLOŽ HO SEM: <<<
+  const FORM_ENDPOINT = 'https://formspree.io/f/mdekegvo';
+
+  const kontaktForm = document.getElementById('kontakt-form');
+  const kontaktSubmitBtn = document.getElementById('kontakt-submit-btn');
+  const formSuccess = document.getElementById('form-success');
+
+  function sendViaMailto(data) {
+    const subject = `Poptávka na maturák — ${data.get('skola') || 'bez školy'}`;
+    const lines = [
+      `Jméno: ${data.get('jmeno') || ''}`,
+      `Název školy: ${data.get('skola') || ''}`,
+      `Město / místo plesu: ${data.get('misto') || ''}`,
+      `Datum plesu: ${data.get('datum') || ''}`,
+      `Počet lidí: ${data.get('pocet') || ''}`,
+      `E-mail / telefon: ${data.get('kontakt') || ''}`,
+      `Odkud jsi přišel: ${data.get('zdroj') || ''}`,
+      '',
+      'Zpráva:',
+      data.get('zprava') || ''
+    ];
+    const body = lines.join('\n');
+    window.location.href = `mailto:pjaylife@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  }
+
+  function showFormSuccess() {
+    kontaktForm.style.display = 'none';
+    formSuccess.style.display = 'block';
+  }
+
+  kontaktForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    kontaktSubmitBtn.disabled = true;
+    kontaktSubmitBtn.textContent = 'Odesílám…';
+
+    const data = new FormData(kontaktForm);
+    data.set('_subject', `Poptávka na maturák — ${data.get('skola') || 'bez školy'}`);
+
+    const endpointConfigured = FORM_ENDPOINT.indexOf('YOUR_FORM_ID') === -1;
+
+    if (endpointConfigured) {
+      try {
+        const res = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          showFormSuccess();
+          return;
+        }
+        throw new Error('Formspree responded with an error status');
+      } catch (err) {
+        // Formspree selhalo -> záložní mailto, ať poptávka neskončí v koši.
+        sendViaMailto(data);
+        showFormSuccess();
+        return;
+      }
+    }
+
+    // Formspree ještě není nastavené -> zatím jen mailto.
+    sendViaMailto(data);
+    showFormSuccess();
+  });
+</script>
+
+</body>
+</html>
