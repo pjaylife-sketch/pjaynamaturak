@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="cs">
 <head>
@@ -105,6 +106,10 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
     .proc-photo1 { max-width: 183px; }
   }
 
+  @media (max-width: 700px) {
+    #video { padding-top: 14px !important; }
+  }
+
   .btn { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border-radius: 999px; font-weight: 700; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; border: none; transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease; white-space: nowrap; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.45); }
   .btn-secondary { background: transparent; border: 1.5px solid rgba(245,245,242,0.35); color: #F5F5F2; }
@@ -205,8 +210,8 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
       <a href="#hero" style="font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 0.04em;">PJAY <span style="color: #FF2E63;">na</span> Maturák</a>
       <nav class="nav-links">
         <a href="#hero">Domů</a>
-        <a href="#proc">Proč já?</a>
         <a href="#video">Video</a>
+        <a href="#proc">Proč já?</a>
         <a href="#program">Program</a>
         <a href="#o-mne">O mně</a>
         <a href="#hudba">Hudba</a>
@@ -224,8 +229,8 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
     </div>
     <nav class="mobile-nav">
       <a href="#hero" onClick="setMobileMenu(false)">Domů</a>
-      <a href="#proc" onClick="setMobileMenu(false)">Proč já?</a>
       <a href="#video" onClick="setMobileMenu(false)">Video</a>
+      <a href="#proc" onClick="setMobileMenu(false)">Proč já?</a>
       <a href="#program" onClick="setMobileMenu(false)">Program</a>
       <a href="#o-mne" onClick="setMobileMenu(false)">O mně</a>
       <a href="#hudba" onClick="setMobileMenu(false)">Hudba</a>
@@ -258,65 +263,11 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
     </div>
   </section>
 
-  <!-- WHY THIS DJ -->
-  <section id="proc" style="padding-top: clamp(8px, 1vw, 16px); padding-bottom: clamp(14px, 2vw, 30px);">
-    <div class="container">
-      <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); align-items: flex-start;">
-        <div style="flex: 1 1 440px;">
-          <div class="eyebrow" style="margin-bottom: 16px;">Proč já?</div>
-          <h2 class="h2" style="margin-bottom: 30px; line-height: 1.15;">Proč <span style="color: #E5484D;">platit dva</span>,<br>když <span style="color: #6FCF97;">stačí jeden</span>?</h2>
-          <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-bottom: 0;">Jsem moderátor a DJ v jednom člověku. Dokážu odřídit celej večer sám a reagovat na průběh večera slovem i hudbou.</p>
-        </div>
-        <div class="proc-photo1" style="flex: 1 1 96px; position: relative; margin: 0 auto;">
-          <div style="position: absolute; left: 50%; top: 38%; width: 130%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
-          <img src="assets/images/proc-foto-1.png" alt="DJ Patrik s mikrofonem a sluchátky" style="position: relative; width: 100%; height: auto; display: block;">
-        </div>
-      </div>
-
-      <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-top: clamp(24px, 4vw, 36px); margin-bottom: 0;">Mám za sebou deset let zkušeností a stovky akcí.</p>
-
-      <div style="max-width: 204px; margin: clamp(24px, 4vw, 40px) auto 0; position: relative;">
-        <div style="position: absolute; left: 50%; top: 32%; width: 140%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
-        <img src="assets/images/proc-foto-2.png" alt="DJ Patrik s mikrofonem" style="position: relative; width: 100%; height: auto; display: block;">
-      </div>
-
-      <div style="margin-top: clamp(32px, 5vw, 48px); border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 3.5vw, 36px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 48px);">
-        <div style="flex: 1 1 320px;">
-          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Moderace</div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Přivítání</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Poděkování</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Soutěže</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Losování</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
-          </div>
-        </div>
-        <div style="flex: 1 1 320px;">
-          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Hudba</div>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Předtančení</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Polonéza</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Oldies</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">CZ/SK hity</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Zahraniční</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Tik Tok Trends</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
-            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Afterparty</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- VIDEO / SOCIAL PROOF -->
   <section id="video" style="padding-block: clamp(40px, 6vw, 90px);">
     <div class="container">
       <div class="eyebrow" style="margin-bottom: 16px;">Pár ukázek</div>
-      <h2 class="h2" style="margin-bottom: 40px;">Koukni se!</h2>
+      <h2 class="h2" style="margin-bottom: 40px;">Zažijte to se mnou!</h2>
     </div>
 
     <div class="container">
@@ -401,6 +352,60 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
       <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D;">Chci takovou atmosféru</a>
     </div>
 
+  </section>
+
+  <!-- WHY THIS DJ -->
+  <section id="proc" style="padding-top: clamp(8px, 1vw, 16px); padding-bottom: clamp(14px, 2vw, 30px);">
+    <div class="container">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(24px, 5vw, 56px); align-items: flex-start;">
+        <div style="flex: 1 1 440px;">
+          <div class="eyebrow" style="margin-bottom: 16px;">Proč já?</div>
+          <h2 class="h2" style="margin-bottom: 30px; line-height: 1.15;">Proč <span style="color: #E5484D;">platit dva</span>,<br>když <span style="color: #6FCF97;">stačí jeden</span>?</h2>
+          <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-bottom: 0;">Jsem moderátor a DJ v jednom člověku. Dokážu odřídit celej večer sám a reagovat na průběh večera slovem i hudbou.</p>
+        </div>
+        <div class="proc-photo1" style="flex: 1 1 96px; position: relative; margin: 0 auto;">
+          <div style="position: absolute; left: 50%; top: 38%; width: 130%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
+          <img src="assets/images/proc-foto-1.png" alt="DJ Patrik s mikrofonem a sluchátky" style="position: relative; width: 100%; height: auto; display: block;">
+        </div>
+      </div>
+
+      <p class="body-text" style="font-size: clamp(18px, 2.2vw, 23px); color: #F0F0EC; font-weight: 500; line-height: 1.5; margin-top: clamp(24px, 4vw, 36px); margin-bottom: 0;">Mám za sebou deset let zkušeností a stovky akcí.</p>
+
+      <div style="max-width: 204px; margin: clamp(24px, 4vw, 40px) auto 0; position: relative;">
+        <div style="position: absolute; left: 50%; top: 32%; width: 140%; aspect-ratio: 1; transform: translate(-50%,-50%); background: radial-gradient(circle, #FF2E63 0%, transparent 68%); opacity: 0.3; filter: blur(46px); pointer-events: none;"></div>
+        <img src="assets/images/proc-foto-2.png" alt="DJ Patrik s mikrofonem" style="position: relative; width: 100%; height: auto; display: block;">
+      </div>
+
+      <div style="margin-top: clamp(32px, 5vw, 48px); border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 3.5vw, 36px); display: flex; flex-wrap: wrap; gap: clamp(24px, 4vw, 48px);">
+        <div style="flex: 1 1 320px;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Moderace</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Přivítání</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Poděkování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Soutěže</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Losování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
+          </div>
+        </div>
+        <div style="flex: 1 1 320px;">
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 0.03em; text-transform: uppercase; color: #FF2E63; margin-bottom: 14px;">Hudba</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Předtančení</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Nástupy</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Šerpování</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Polonéza</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Oldies</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">CZ/SK hity</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Zahraniční</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Tik Tok Trends</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Půlnočko</span>
+            <span class="pill" style="padding: 8px 14px; font-size: 13px;">Afterparty</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- COMPARISON -->
@@ -641,7 +646,7 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
             <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
           </div>
           <p class="body-text" style="margin-bottom: 14px; font-size: 13.5px; line-height: 1.55;">Patrik byl náš DJ a zároveň moderátor na maturáku a za nás úplná pecka. 🔥 Hudbu dokázal skvěle přizpůsobit tomu, co se zrovna dělo, a hlavně se postaral o to, že večer měl fakt tempo. Moderování bylo přirozené, vtipné a vůbec ne trapné, což jsme se předem trochu báli 😄 Celý večer měl pod kontrolou a my jsme si mohli jen užívat. Rozhodně doporučujeme!</p>
-          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Beata R. - Gymnázium Čelákovice</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Beata M. - Gymnázium Čelákovice</div>
         </div>
         <div class="why-card" style="padding: clamp(20px, 2.5vw, 26px);">
           <div style="display: flex; gap: 3px; margin-bottom: 14px;">
@@ -652,7 +657,7 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
             <svg viewBox="0 0 24 24" width="13" height="13" fill="#6FCF97"><path d="M12 2l2.9 6.4 7 .6-5.3 4.6 1.6 6.9L12 16.9 5.8 20.5l1.6-6.9L2.1 9l7-.6L12 2z"></path></svg>
           </div>
           <p class="body-text" style="margin-bottom: 14px; font-size: 13.5px; line-height: 1.55;">Měli jsme PJAYE na našem maturitním plese a zároveň nám dělal moderátora. Bylo super, že jsme nemuseli řešit dvě různé osoby a všechno měl na starosti jeden člověk. Hudba byla skvělá, reagoval na atmosféru v sále a moderování bylo přesně takové, jaké jsme chtěli. Celý večer jsme se nemuseli o nic starat. Za nás určitě doporučení. 🙌</p>
-          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Nátalie C. - SOŠ Příbram</div>
+          <div style="font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 0.03em; text-transform: uppercase; color: #A6A6A1;">Natálie S. - SOŠ Příbram</div>
         </div>
         <div class="why-card" style="padding: clamp(20px, 2.5vw, 26px);">
           <div style="display: flex; gap: 3px; margin-bottom: 14px;">
@@ -679,10 +684,10 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
       <div class="pricing-grid">
 
         <!-- 1: POUZE MODERACE -->
-        <div class="pricing-card">
+        <div class="pricing-card" style="border: 2px solid #3B82F6; background: color-mix(in srgb, #3B82F6 9%, #141417);">
           <div class="pricing-emoji">🎤</div>
           <div class="pricing-title">Pouze moderace</div>
-          <div class="pricing-price" style="color: #FF2E63;">od 14 900 Kč</div>
+          <div class="pricing-price" style="color: #5B9BFF;">od 14 900 Kč</div>
           <p class="pricing-desc" style="min-height: 3.2em;">Potřebujete někoho, kdo celý večer odmoderuje a udrží program v tempu?</p>
           <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false">
             Co je v balíčku
@@ -697,16 +702,16 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
               <li>🔥 Půlnoční program</li>
               <li>📋 Příprava a koordinace programu před plesem</li>
             </ul>
-            <div class="pricing-tagline" style="color: #FF2E63;">Vy řešíte hudbu. Já řeším zbytek.</div>
+            <div class="pricing-tagline" style="color: #5B9BFF;">Vy řešíte hudbu. Já řeším zbytek.</div>
             <a href="#kontakt" class="pricing-cta">Chci tenhle balíček</a>
           </div>
         </div>
 
         <!-- 2: POUZE DJ -->
-        <div class="pricing-card">
+        <div class="pricing-card" style="border: 2px solid #A9B4BE; background: color-mix(in srgb, #A9B4BE 9%, #141417);">
           <div class="pricing-emoji">🎧</div>
           <div class="pricing-title">Pouze DJ</div>
-          <div class="pricing-price" style="color: #FF2E63;">od 14 900 Kč</div>
+          <div class="pricing-price" style="color: #C9D2DA;">od 14 900 Kč</div>
           <p class="pricing-desc" style="min-height: 3.2em;">Hudba na celý maturák bez zbytečných komplikací.</p>
           <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false">
             Co je v balíčku
@@ -720,7 +725,7 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
               <li>📋 Předem připravený playlist a požadavky</li>
               <li>💃 Hudba pro všechny části večera</li>
             </ul>
-            <div class="pricing-tagline" style="color: #FF2E63;">Vy řešíte program. Já řeším hudbu.</div>
+            <div class="pricing-tagline" style="color: #C9D2DA;">Vy řešíte program. Já řeším hudbu.</div>
             <a href="#kontakt" class="pricing-cta">Chci tenhle balíček</a>
           </div>
         </div>
