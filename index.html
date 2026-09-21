@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DJ + moderátor na maturitní ples | Patrik</title>
 <meta name="description" content="DJ a moderátor v jednom pro maturitní plesy. Umím obojí — hraju, moderuju a mám celý večer pod kontrolou.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%93%3C/text%3E%3C/svg%3E">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1443887884255145');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap">
 <style>
   * { box-sizing: border-box; }
@@ -27,6 +45,22 @@
   @media (max-width: 880px) {
     .nav-links { display: none; }
     .nav-cta-wrap { display: none; }
+  }
+
+  .nav-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; background: transparent; border: none; color: #F5F5F2; cursor: pointer; padding: 0; flex: 0 0 auto; }
+  @media (max-width: 880px) {
+    .nav-toggle { display: flex; }
+  }
+  .icon-close { display: none; }
+  .icon-hamburger.open { display: none; }
+  .icon-close.open { display: block; }
+
+  .mobile-nav { display: none; flex-direction: column; padding: 6px clamp(20px, 5vw, 64px) 22px; gap: 0; background: rgba(11,11,13,0.98); border-top: 1px solid rgba(245,245,242,0.08); max-height: calc(100vh - 76px); overflow-y: auto; }
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-size: 15px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: #E7E7E2; padding: 15px 2px; border-bottom: 1px solid rgba(245,245,242,0.08); }
+  .mobile-nav a.btn { border-bottom: none; margin-top: 14px; width: 100%; justify-content: center; }
+  @media (min-width: 881px) {
+    .mobile-nav { display: none !important; }
   }
 
   .sticky-cta { display: none; }
@@ -57,7 +91,7 @@
 
   @media (max-width: 700px) {
     .hero-lead { position: absolute; top: 120px; left: clamp(20px, 5vw, 64px); right: clamp(20px, 5vw, 64px); }
-    .hero-cta-block { margin-bottom: 54px; padding-bottom: 20px !important; }
+    .hero-cta-block { margin-bottom: 84px; padding-bottom: 20px !important; }
   }
 
   @media (max-width: 700px) {
@@ -135,6 +169,25 @@
   .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238A8A85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; cursor: pointer; }
   .field select:invalid { color: #55554F; }
 
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: start; }
+  .pricing-card { position: relative; background: #141417; border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 3vw, 30px); display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease; }
+  .pricing-card:hover { transform: translateY(-3px); }
+  .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); color: #0B0B0D; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
+  .pricing-emoji { font-size: 30px; margin-bottom: 10px; line-height: 1; }
+  .pricing-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(19px, 2.3vw, 24px); letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 8px; line-height: 1.15; }
+  .pricing-price { font-family: 'Bebas Neue', sans-serif; font-size: clamp(24px, 2.8vw, 30px); letter-spacing: 0.02em; margin-bottom: 12px; }
+  .pricing-desc { font-size: 14px; line-height: 1.55; color: #C7C7C2; margin-bottom: 18px; }
+  .pricing-toggle { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: rgba(245,245,242,0.06); border: 1px solid rgba(245,245,242,0.2); border-radius: 12px; padding: 13px 16px; color: #F5F5F2; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; width: 100%; margin-top: auto; }
+  .pricing-toggle-icon { transition: transform .2s ease; flex: 0 0 auto; color: #8A8A85; }
+  .pricing-toggle-icon.open { transform: rotate(45deg); color: #F5F5F2; }
+  .pricing-details { display: none; margin-top: 18px; padding-top: 18px; border-top: 1px dashed rgba(245,245,242,0.18); }
+  .pricing-details.open { display: block; }
+  .pricing-list { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .pricing-list li { font-size: 13.5px; line-height: 1.5; color: #E7E7E2; }
+  .pricing-tagline { font-size: 13px; font-weight: 700; letter-spacing: 0.01em; line-height: 1.5; margin-bottom: 6px; }
+  .pricing-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px 16px; border-radius: 999px; font-weight: 700; font-size: 12.5px; letter-spacing: 0.04em; text-transform: uppercase; background: #6FCF97; color: #0B0B0D; transition: transform .15s ease; }
+  .pricing-cta:hover { transform: translateY(-2px); }
+
   .footer-links { display: flex; gap: 26px; flex-wrap: wrap; }
   .footer-links a { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; color: #A6A6A1; }
   .footer-links a:hover { color: #F5F5F2; }
@@ -157,13 +210,30 @@
         <a href="#program">Program</a>
         <a href="#o-mne">O mně</a>
         <a href="#hudba">Hudba</a>
+        <a href="#balicky">Ceník</a>
         <a href="#kontakt">Kontakt</a>
         <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-cta-wrap">
         <a href="#kontakt" class="btn btn-primary" style="background: #6FCF97; color: #0B0B0D; padding: 12px 22px; font-size: 13px;">Ověřit termín</a>
       </div>
+      <button class="nav-toggle" onClick="toggleMobileMenu()" aria-expanded="false" aria-label="Otevřít menu">
+        <svg class="icon-hamburger" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"></line><line x1="19" y1="5" x2="5" y2="19"></line></svg>
+      </button>
     </div>
+    <nav class="mobile-nav">
+      <a href="#hero" onClick="setMobileMenu(false)">Domů</a>
+      <a href="#proc" onClick="setMobileMenu(false)">Proč já?</a>
+      <a href="#video" onClick="setMobileMenu(false)">Video</a>
+      <a href="#program" onClick="setMobileMenu(false)">Program</a>
+      <a href="#o-mne" onClick="setMobileMenu(false)">O mně</a>
+      <a href="#hudba" onClick="setMobileMenu(false)">Hudba</a>
+      <a href="#balicky" onClick="setMobileMenu(false)">Ceník</a>
+      <a href="#kontakt" onClick="setMobileMenu(false)">Kontakt</a>
+      <a href="#faq" onClick="setMobileMenu(false)">FAQ</a>
+      <a href="#kontakt" class="btn btn-primary" onClick="setMobileMenu(false)" style="background: #6FCF97; color: #0B0B0D;">Ověřit termín</a>
+    </nav>
   </header>
 
   <!-- HERO -->
@@ -599,6 +669,122 @@
     </div>
   </section>
 
+  <!-- PRICING PACKAGES -->
+  <section id="balicky" style="padding-block: clamp(40px, 6vw, 90px); background: #101012;">
+    <div class="container">
+      <div class="eyebrow" style="margin-bottom: 16px;">Ceník</div>
+      <h2 class="h2" style="margin-bottom: 12px;">Vyber si balíček</h2>
+      <p class="body-text" style="max-width: 560px; margin-bottom: clamp(32px, 5vw, 48px);">Od samotné moderace až po DJ + moderátora v jednom. Vyber si, co váš maturák potřebuje.</p>
+
+      <div class="pricing-grid">
+
+        <!-- 1: POUZE MODERACE -->
+        <div class="pricing-card">
+          <div class="pricing-emoji">🎤</div>
+          <div class="pricing-title">Pouze moderace</div>
+          <div class="pricing-price" style="color: #FF2E63;">od 14 900 Kč</div>
+          <p class="pricing-desc" style="min-height: 3.2em;">Potřebujete někoho, kdo celý večer odmoderuje a udrží program v tempu?</p>
+          <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false">
+            Co je v balíčku
+            <svg class="pricing-toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="pricing-details">
+            <ul class="pricing-list">
+              <li>🎤 Moderace celého večera</li>
+              <li>🎓 Nástupy a šerpování</li>
+              <li>💃 Předtančení a speciální vstupy</li>
+              <li>🥂 Slavnostní části programu</li>
+              <li>🔥 Půlnoční program</li>
+              <li>📋 Příprava a koordinace programu před plesem</li>
+            </ul>
+            <div class="pricing-tagline" style="color: #FF2E63;">Vy řešíte hudbu. Já řeším zbytek.</div>
+            <a href="#kontakt" class="pricing-cta">Chci tenhle balíček</a>
+          </div>
+        </div>
+
+        <!-- 2: POUZE DJ -->
+        <div class="pricing-card">
+          <div class="pricing-emoji">🎧</div>
+          <div class="pricing-title">Pouze DJ</div>
+          <div class="pricing-price" style="color: #FF2E63;">od 14 900 Kč</div>
+          <p class="pricing-desc" style="min-height: 3.2em;">Hudba na celý maturák bez zbytečných komplikací.</p>
+          <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false">
+            Co je v balíčku
+            <svg class="pricing-toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="pricing-details">
+            <ul class="pricing-list">
+              <li>🎧 DJ celý večer</li>
+              <li>🎶 Hudba podle vaší třídy</li>
+              <li>🔥 Reakce na dění na parketu</li>
+              <li>📋 Předem připravený playlist a požadavky</li>
+              <li>💃 Hudba pro všechny části večera</li>
+            </ul>
+            <div class="pricing-tagline" style="color: #FF2E63;">Vy řešíte program. Já řeším hudbu.</div>
+            <a href="#kontakt" class="pricing-cta">Chci tenhle balíček</a>
+          </div>
+        </div>
+
+        <!-- 3: PJAY NA MATURÁK (featured) -->
+        <div class="pricing-card" style="border: 2px solid #FF2E63; background: color-mix(in srgb, #FF2E63 9%, #141417);">
+          <div class="pricing-badge" style="background: #FF2E63;">Nejoblíbenější</div>
+          <div class="pricing-emoji">🎓⭐</div>
+          <div class="pricing-title">PJAY na maturák</div>
+          <div class="pricing-price" style="color: #FF2E63;">od 24 900 Kč</div>
+          <p class="pricing-desc">DJ + moderátor v jednom. Celý večer mám pod kontrolou já. Nemusíte koordinovat dva lidi, předávat si mikrofony ani vysvětlovat jednomu, co právě dělá druhý.</p>
+          <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false">
+            Co je v balíčku
+            <svg class="pricing-toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="pricing-details">
+            <ul class="pricing-list">
+              <li>🎤 Moderace celého večera</li>
+              <li>🎧 DJ celý večer</li>
+              <li>🎓 Nástupy a šerpování</li>
+              <li>💃 Předtančení</li>
+              <li>🥂 Slavnostní části programu</li>
+              <li>🔥 Půlnoční program</li>
+              <li>🎶 Hudba reagující na program</li>
+              <li>📋 Příprava dramaturgie před plesem</li>
+              <li>📞 Jeden člověk, jeden kontakt</li>
+            </ul>
+            <div class="pricing-tagline" style="color: #FF2E63;">Jeden člověk. Dvě role. Jeden večer pod kontrolou.<br>Proč platit dva, když stačí jeden?</div>
+            <a href="#kontakt" class="pricing-cta">Chci tenhle balíček</a>
+          </div>
+        </div>
+
+        <!-- 4: PJAY + AFTERPARTY (VIP gold) -->
+        <div class="pricing-card" style="border: 2px solid #D4AF37; background: linear-gradient(165deg, rgba(212,175,55,0.16), #141417 60%); box-shadow: 0 0 0 1px rgba(212,175,55,0.08), 0 14px 34px rgba(212,175,55,0.14);">
+          <div class="pricing-badge" style="background: linear-gradient(135deg, #F4D35E, #C9A227); color: #241C00;">VIP</div>
+          <div class="pricing-emoji">🎓⭐🔥</div>
+          <div class="pricing-title">PJAY na maturák + afterparty</div>
+          <div class="pricing-price" style="color: #E8C468;">od 29 900 Kč</div>
+          <p class="pricing-desc">Celý maturák + afterparty až do konce. Všechno z balíčku PJAY NA MATURÁK a k tomu pokračujeme i po oficiálním programu.</p>
+          <button class="pricing-toggle" onClick="togglePricing(this)" aria-expanded="false" style="border-color: rgba(212,175,55,0.35); background: rgba(212,175,55,0.08);">
+            Co je v balíčku
+            <svg class="pricing-toggle-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          </button>
+          <div class="pricing-details">
+            <ul class="pricing-list">
+              <li>🎤 Kompletní moderace maturáku</li>
+              <li>🎧 DJ na celý maturák</li>
+              <li>🎓 Nástupy a šerpování</li>
+              <li>💃 Předtančení</li>
+              <li>🔥 Půlnoční program</li>
+              <li>🎶 Hudba podle vaší třídy</li>
+              <li>🪩 Afterparty</li>
+              <li>🔥 Party set bez kompromisů</li>
+              <li>📋 Příprava celého večera před akcí</li>
+            </ul>
+            <div class="pricing-tagline" style="color: #E8C468;">Od prvního nástupu až po poslední song.<br>Jeden člověk. Jedna komunikace. Celý večer.</div>
+            <a href="#kontakt" class="pricing-cta" style="background: linear-gradient(135deg, #F4D35E, #C9A227); color: #241C00;">Chci tenhle balíček</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- FINAL CTA -->
   <section id="final-cta" style="padding-block: clamp(56px, 9vw, 110px); background: #101012;">
     <div class="container">
@@ -816,6 +1002,32 @@
     if (p && p.catch) { p.catch(() => {}); }
   }
 
+  // ---- mobilní rozbalovací menu ----
+  const navToggleBtn = document.querySelector('.nav-toggle');
+  const mobileNavEl = document.querySelector('.mobile-nav');
+  const iconHamburgerEl = document.querySelector('.icon-hamburger');
+  const iconCloseEl = document.querySelector('.icon-close');
+  function setMobileMenu(open) {
+    mobileNavEl.classList.toggle('open', open);
+    iconHamburgerEl.classList.toggle('open', open);
+    iconCloseEl.classList.toggle('open', open);
+    navToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function toggleMobileMenu() {
+    setMobileMenu(!mobileNavEl.classList.contains('open'));
+  }
+
+  // ---- rozbalovací balíčky v Ceníku ----
+  function togglePricing(btn) {
+    const card = btn.closest('.pricing-card');
+    const icon = card.querySelector('.pricing-toggle-icon');
+    const details = card.querySelector('.pricing-details');
+    const isOpen = details.classList.contains('open');
+    details.classList.toggle('open', !isOpen);
+    icon.classList.toggle('open', !isOpen);
+    btn.setAttribute('aria-expanded', (!isOpen).toString());
+  }
+
   // ---- mute/unmute tlačítko na kartách v "Koukni se!" ----
   function toggleReelSound(e) {
     const card = e.currentTarget.closest('.reel-card');
@@ -882,6 +1094,7 @@
   function showFormSuccess() {
     kontaktForm.style.display = 'none';
     formSuccess.style.display = 'block';
+    if (typeof window.fbq === 'function') { window.fbq('track', 'Lead'); }
   }
 
   kontaktForm.addEventListener('submit', async (e) => {
