@@ -842,8 +842,12 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
             <input id="f-pocet" name="pocet" type="number" placeholder="Přibližně">
           </div>
           <div class="field">
-            <label for="f-kontakt">E-mail / telefon</label>
-            <input id="f-kontakt" name="kontakt" type="text" placeholder="Jak tě zastihnout" required>
+            <label for="f-email">E-mail</label>
+            <input id="f-email" name="email" type="email" placeholder="tvuj@email.cz" required>
+          </div>
+          <div class="field">
+            <label for="f-telefon">Telefon</label>
+            <input id="f-telefon" name="telefon" type="tel" placeholder="Tvoje telefonní číslo" required>
           </div>
           <div class="field">
             <label for="f-zdroj">Odkud jsi přišel</label>
@@ -1086,7 +1090,8 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
       `Město / místo plesu: ${data.get('misto') || ''}`,
       `Datum plesu: ${data.get('datum') || ''}`,
       `Počet lidí: ${data.get('pocet') || ''}`,
-      `E-mail / telefon: ${data.get('kontakt') || ''}`,
+      `E-mail: ${data.get('email') || ''}`,
+      `Telefon: ${data.get('telefon') || ''}`,
       `Odkud jsi přišel: ${data.get('zdroj') || ''}`,
       '',
       'Zpráva:',
