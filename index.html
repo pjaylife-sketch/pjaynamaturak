@@ -166,15 +166,17 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
   .faq-answer { padding: 0 0 24px 50px; max-width: 720px; display: none; }
 
   .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .field { min-width: 0; }
   .field label { display: block; font-size: 12px; letter-spacing: 0.09em; text-transform: uppercase; color: #8A8A85; font-weight: 700; margin-bottom: 9px; }
-  .field input, .field textarea, .field select { width: 100%; background: #141417; border: 1.5px solid rgba(245,245,242,0.2); border-radius: 12px; padding: 15px 16px; color: #F5F5F2; font-size: 15px; font-family: inherit; }
+  .field input, .field textarea, .field select { width: 100%; min-width: 0; max-width: 100%; background: #141417; border: 1.5px solid rgba(245,245,242,0.2); border-radius: 12px; padding: 15px 16px; color: #F5F5F2; font-size: 15px; font-family: inherit; }
+  .field input[type="date"] { min-width: 0; padding-right: 10px; }
   .field input::placeholder, .field textarea::placeholder { color: #55554F; }
   .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-color: #F5F5F2; background: #17171A; }
   .field textarea { resize: vertical; min-height: 110px; }
   .field select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238A8A85' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; cursor: pointer; }
   .field select:invalid { color: #55554F; }
 
-  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: start; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; align-items: stretch; }
   .pricing-card { position: relative; background: #141417; border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 3vw, 30px); display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease; }
   .pricing-card:hover { transform: translateY(-3px); }
   .pricing-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); color: #0B0B0D; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 16px; border-radius: 999px; white-space: nowrap; }
@@ -816,7 +818,8 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
 
       <div id="form-success" style="padding: 40px; border-radius: 20px; border: 2px solid #FF2E63; background: color-mix(in srgb, #FF2E63 12%, #0B0B0D);">
         <div style="font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: 0.02em; margin-bottom: 10px;">Díky za poptávku!</div>
-        <div class="body-text">Ozvu se ti co nejdřív. Kdyby něco, napiš mi rovnou na <a href="mailto:pjaylife@gmail.com" style="color: #FF2E63; text-decoration: underline;">pjaylife@gmail.com</a>.</div>
+        <div class="body-text" style="margin-bottom: 22px;">Ozvu se ti do 24 hodin s nabídkou na míru. Kdyby něco, napiš mi rovnou na <a href="mailto:pjaylife@gmail.com" style="color: #FF2E63; text-decoration: underline;">pjaylife@gmail.com</a>.</div>
+        <a href="#balicky" class="btn btn-primary" style="background: #FF2E63; color: #0B0B0D;">Mezitím si prohlédnout balíčky a ceny</a>
       </div>
 
       <form id="kontakt-form" style="border: 1.5px solid rgba(245,245,242,0.16); border-radius: 20px; padding: clamp(24px, 4vw, 40px);">
@@ -840,6 +843,15 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
           <div class="field">
             <label for="f-pocet">Počet lidí</label>
             <input id="f-pocet" name="pocet" type="number" placeholder="Přibližně">
+          </div>
+          <div class="field">
+            <label for="f-sluzba">Služba</label>
+            <select id="f-sluzba" name="sluzba" required>
+              <option value="" disabled selected hidden>Vyber možnost</option>
+              <option value="DJ">DJ</option>
+              <option value="Moderace">Moderace</option>
+              <option value="DJ + Moderace">DJ + Moderace</option>
+            </select>
           </div>
           <div class="field">
             <label for="f-email">E-mail</label>
@@ -1071,12 +1083,10 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
   }
 
   // ---- odeslání kontaktního formuláře ----
-  // 1) Zkusí odeslat na Formspree (skutečné tiché odeslání bez opuštění stránky).
-  // 2) Když Formspree endpoint není nastavený nebo selže, otevře se záložní mailto:
-  //    (stejné chování, jaké mělo provizorní řešení v editoru).
-  //
-  // >>> AŽ BUDEŠ MÍT FORMSPREE ID, VLOŽ HO SEM: <<<
-  const FORM_ENDPOINT = 'https://formspree.io/f/mdekegvo';
+  // Odešle data na vlastní Cloudflare Worker (zdarma, neomezeně) — ten zapíše
+  // poptávku do Google Sheets a pošle e-mail tobě i zákazníkovi. Odeslání je
+  // na pozadí (fetch), návštěvník zůstává na stránce.
+  const CONTACT_WORKER_ENDPOINT = 'https://pjay-kontakt.pjaylife.workers.dev/';
 
   const kontaktForm = document.getElementById('kontakt-form');
   const kontaktSubmitBtn = document.getElementById('kontakt-submit-btn');
@@ -1090,6 +1100,7 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
       `Město / místo plesu: ${data.get('misto') || ''}`,
       `Datum plesu: ${data.get('datum') || ''}`,
       `Počet lidí: ${data.get('pocet') || ''}`,
+      `Služba: ${data.get('sluzba') || ''}`,
       `E-mail: ${data.get('email') || ''}`,
       `Telefon: ${data.get('telefon') || ''}`,
       `Odkud jsi přišel: ${data.get('zdroj') || ''}`,
@@ -1113,33 +1124,24 @@ src="https://www.facebook.com/tr?id=1443887884255145&ev=PageView&noscript=1"
     kontaktSubmitBtn.textContent = 'Odesílám…';
 
     const data = new FormData(kontaktForm);
-    data.set('_subject', `Poptávka na maturák — ${data.get('skola') || 'bez školy'}`);
 
-    const endpointConfigured = FORM_ENDPOINT.indexOf('YOUR_FORM_ID') === -1;
-
-    if (endpointConfigured) {
-      try {
-        const res = await fetch(FORM_ENDPOINT, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          showFormSuccess();
-          return;
-        }
-        throw new Error('Formspree responded with an error status');
-      } catch (err) {
-        // Formspree selhalo -> záložní mailto, ať poptávka neskončí v koši.
-        sendViaMailto(data);
+    try {
+      const res = await fetch(CONTACT_WORKER_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      const result = await res.json();
+      if (result.success) {
         showFormSuccess();
         return;
       }
+      throw new Error('Worker responded with failure');
+    } catch (err) {
+      // Odeslání selhalo -> záložní mailto, ať poptávka neskončí v koši.
+      sendViaMailto(data);
+      showFormSuccess();
     }
-
-    // Formspree ještě není nastavené -> zatím jen mailto.
-    sendViaMailto(data);
-    showFormSuccess();
   });
 </script>
 
